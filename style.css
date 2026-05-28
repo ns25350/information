@@ -1,1 +1,102 @@
-c
+/* 全体リセット */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f7f9fa;
+  color: #333;
+  overflow: hidden; /* スマホで画面全体が余計にスクロールするのを防ぐ */
+}
+
+/* ページ全体の枠（タブ切り替えの単位） */
+.app-page {
+  width: 100vw;
+  height: calc(100vh - 65px); /* 画面全体からタブバーの高さ(65px)を引いたサイズ */
+  position: relative;
+  overflow-y: auto; /* マップ以外で縦に長くなった時はスクロール可能にする */
+}
+
+.page-padding {
+  padding: 20px;
+}
+
+/* --- マップページの特別なレイアウト（縦に分割） --- */
+#map-page {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#map-container {
+  flex: 1; /* 残りの画面をめいっぱい広げる（約6割〜7割） */
+  width: 100%;
+  background: #e5e3df;
+}
+
+#map-detail-box {
+  height: 120px; /* 詳細ボックスの高さを固定 */
+  background: #ffffff;
+  padding: 15px;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* マップより前面に出す */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+#map-spot-title {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #1a1a1a;
+}
+
+#map-spot-desc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* --- 最下部タブバーのデザイン --- */
+#app-tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 65px;
+  background: #ffffff;
+  display: flex;
+  border-top: 1px solid #e0e0e0;
+  z-index: 2000;
+}
+
+.app-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #8e8e93;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.app-tab:active {
+  background: #f0f0f0;
+}
+
+/* アクティブ（選択中）なタブの色 */
+.app-tab.active {
+  color: #007aff; /* iOS風の青色 */
+}
+
+.tab-icon {
+  font-size: 1.3rem;
+  margin-bottom: 2px;
+}
+
+.tab-text {
+  font-size: 0.75rem;
+}
