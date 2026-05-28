@@ -1,1 +1,59 @@
-a
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文化祭アプリ（モックアップ）</title>
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="map-page" class="app-page">
+    <div id="map-container"></div>
+    
+    <div id="map-detail-box">
+      <h3 id="map-spot-title">教室を選択してください</h3>
+      <p id="map-spot-desc">マップ上のピンをタップすると、ここに各クラスの出し物や現在の待ち時間が表示されます。</p>
+    </div>
+  </div>
+
+  <div id="waiting-page" class="app-page" style="display: none;">
+    <div class="page-padding">
+      <h2>現在の待ち時間一覧</h2>
+      <p>※ここは後からGASのシステムとすり合わせる場所です</p>
+      <div style="padding: 15px; background: #f0f0f0; margin-bottom: 10px; border-radius: 8px;">
+        <strong>2年H組：お化け屋敷</strong> — 待ち時間: <span style="color: red; font-weight: bold;">30分</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="schedule-page" class="app-page" style="display: none;">
+    <div class="page-padding">
+      <h2>タイムスケジュール</h2>
+      <p>体育館やステージの予定表をここに書きます。</p>
+    </div>
+  </div>
+
+  <div id="app-tab-bar">
+    <div class="app-tab active" onclick="switchTab('map')">
+      <span class="tab-icon">🗺️</span>
+      <span class="tab-text">マップ</span>
+    </div>
+    <div class="app-tab" onclick="switchTab('waiting')">
+      <span class="tab-icon">🕒</span>
+      <span class="tab-text">待ち時間</span>
+    </div>
+    <div class="app-tab" onclick="switchTab('schedule')">
+      <span class="tab-icon">📅</span>
+      <span class="tab-text">予定</span>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <script src="main.js"></script>
+</body>
+</html>
